@@ -2,12 +2,12 @@ import 'dart:wasm';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:marvelapp/Actions.dart';
-import 'package:marvelapp/Middleware.dart';
-import 'package:marvelapp/Reducer.dart';
+import 'package:marvelapp/actions/Actions.dart';
+import 'package:marvelapp/middleware/Middleware.dart';
+import 'package:marvelapp/reducers/Reducer.dart';
 import 'package:redux/redux.dart';
 
-import 'AppState.dart';
+import 'reducers/AppState.dart';
 import 'home/home_page.dart';
 import 'resources/strings.dart';
 

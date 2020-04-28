@@ -1,5 +1,5 @@
-import 'package:marvelapp/Actions.dart';
-import 'package:marvelapp/AppState.dart';
+import 'package:marvelapp/actions/Actions.dart';
+import 'package:marvelapp/reducers/AppState.dart';
 
 AppState appStateReducer(AppState state, action) {
   if (action is FetchBookListsAction) {

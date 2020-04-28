@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:marvelapp/Actions.dart';
+import 'package:marvelapp/actions/Actions.dart';
+import 'package:marvelapp/home/BookListsViewModel.dart';
 
-import '../AppState.dart';
+import '../reducers/AppState.dart';
 import 'BookListsApi.dart';
 
 class BookListsView extends StatelessWidget {
@@ -14,14 +15,20 @@ class BookListsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      StoreConnector<AppState, List<BookList>>(
+      StoreConnector<AppState, BookListsViewModel>(
           onInit: (store) => store.dispatch(FetchBookListsAction()),
-          converter: (store) => store.state.bookList,
-          builder: (context, booklists) {
-            return new ListView.builder(
-                itemCount: booklists.length,
-                itemBuilder: (context, position) {
-                  return ListTile(title: getItem(booklists[position]));
-                });
+          converter: (store) =>
+              BookListsViewModel(store.state.bookList, store.state.isFetching),
+          builder: (context, viewModel) {
+            if (viewModel.isFetching) {
+              return Center(child: CircularProgressIndicator());
+            } else {
+              return new ListView.builder(
+                  itemCount: viewModel.bookLists.length,
+                  itemBuilder: (context, position) {
+                    return ListTile(
+                        title: getItem(viewModel.bookLists[position]));
+                  });
+            }
           });
 }

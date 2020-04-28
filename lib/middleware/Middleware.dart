@@ -1,8 +1,8 @@
-import 'package:marvelapp/Actions.dart';
+import 'package:marvelapp/actions/Actions.dart';
 import 'package:marvelapp/home/BookListsApi.dart';
 import 'package:redux/redux.dart';
 
-import 'AppState.dart';
+import '../reducers/AppState.dart';
 
 void fetchBookListMiddleware(
     Store<AppState> store, action, NextDispatcher next) {
