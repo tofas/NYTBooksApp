@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:marvelapp/actions/Actions.dart';
 import 'package:marvelapp/bookdetail/BookDetailPage.dart';
+import 'package:marvelapp/entities/BookLists.dart';
 import 'package:marvelapp/home/BookListsViewModel.dart';
 
 import '../reducers/AppState.dart';

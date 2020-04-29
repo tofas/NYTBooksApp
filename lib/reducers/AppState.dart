@@ -1,3 +1,4 @@
+import 'package:marvelapp/entities/BookLists.dart';
 import 'package:marvelapp/home/BookListsApi.dart';
 
 class AppState {

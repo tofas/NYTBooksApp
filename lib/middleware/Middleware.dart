@@ -1,4 +1,5 @@
 import 'package:marvelapp/actions/Actions.dart';
+import 'package:marvelapp/entities/BookLists.dart';
 import 'package:marvelapp/home/BookListsApi.dart';
 import 'package:redux/redux.dart';
 
@@ -13,9 +14,9 @@ void fetchBookListMiddleware(
     }).catchError((Object error) {
       store.dispatch(new FetchBookListsFailedAction(error));
     });
-  } else if(action is )
+  }
 
   next(action);
 }
 
-Middleware<AppState> fetchBookListMiddleware()
+//Middleware<AppState> fetchBookListMiddleware()
