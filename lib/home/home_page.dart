@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marvelapp/home/BookListsView.dart';
+import 'package:marvelapp/home/BookListTypeView.dart';
 import 'package:marvelapp/resources/strings.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -12,6 +12,6 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(title)), body: new BookListsView());
+        appBar: AppBar(title: Text(title)), body: new BookListTypeView());
   }
 }

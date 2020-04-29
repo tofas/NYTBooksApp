@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:marvelapp/actions/Actions.dart';
 import 'package:marvelapp/bookdetail/BookDetailPage.dart';
-import 'package:marvelapp/entities/BookLists.dart';
-import 'package:marvelapp/home/BookListsViewModel.dart';
+import 'package:marvelapp/entities/BookListType.dart';
+import 'package:marvelapp/home/BookListTypeViewModel.dart';
 
 import '../reducers/AppState.dart';
-import 'BookListsApi.dart';
 
-class BookListsView extends StatelessWidget {
-  Widget getItem(BookList bookList) {
+class BookListTypeView extends StatelessWidget {
+  Widget getItem(BookListType bookList) {
     return Row(
       children: <Widget>[Text(bookList.listName)],
     );
@@ -17,10 +16,10 @@ class BookListsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      StoreConnector<AppState, BookListsViewModel>(
+      StoreConnector<AppState, BookListsTypeViewModel>(
           onInit: (store) => store.dispatch(FetchBookListsAction()),
           converter: (store) =>
-              BookListsViewModel(store.state.bookList, store.state.isFetching),
+              BookListsTypeViewModel(store.state.bookList, store.state.isFetching),
           builder: (context, viewModel) {
             if (viewModel.isFetching) {
               return Center(child: CircularProgressIndicator());
@@ -37,7 +36,7 @@ class BookListsView extends StatelessWidget {
             }
           });
 
-  void onItemClick(BuildContext context, BookList list) {
+  void onItemClick(BuildContext context, BookListType list) {
     Navigator.pushNamed(context, BookDetailPage.routeName,
         arguments:
             BookDetailNavigationArguments(list.listName, list.listNameEncoded));

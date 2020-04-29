@@ -1,11 +1,11 @@
-import 'package:marvelapp/entities/BookLists.dart';
+import 'package:marvelapp/entities/BookListType.dart';
 
 class FetchBookListsAction {}
 
 class FetchBookListsSuccedAction {
-  List<BookList> bookLists;
+  List<BookListType> bookLists;
 
-  FetchBookListsSuccedAction(List<BookList> booklists) {
+  FetchBookListsSuccedAction(List<BookListType> booklists) {
     this.bookLists = booklists;
   }
 }

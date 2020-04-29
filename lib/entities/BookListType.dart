@@ -1,12 +1,12 @@
 
-class BookList {
+class BookListType {
   String listName;
   String listNameEncoded;
 
-  BookList(this.listName, this.listNameEncoded);
+  BookListType(this.listName, this.listNameEncoded);
 
-  static BookList fromJson(Map<String, Object> json) {
-    return BookList(
+  static BookListType fromJson(Map<String, Object> json) {
+    return BookListType(
         json['list_name'] as String,
         json['list_name_encoded'] as String);
   }

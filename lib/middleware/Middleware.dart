@@ -1,22 +1,26 @@
 import 'package:marvelapp/actions/Actions.dart';
-import 'package:marvelapp/entities/BookLists.dart';
-import 'package:marvelapp/home/BookListsApi.dart';
+import 'package:marvelapp/data/booklists/BookListTypeRepositoryImpl.dart';
 import 'package:redux/redux.dart';
 
 import '../reducers/AppState.dart';
 
-void fetchBookListMiddleware(
-    Store<AppState> store, action, NextDispatcher next) {
-  if (action is FetchBookListsAction) {
-    final api = new BookListApi();
-    api.fetchBookLists().then((List<BookList> bookLists) {
-      store.dispatch(new FetchBookListsSuccedAction(bookLists));
-    }).catchError((Object error) {
-      store.dispatch(new FetchBookListsFailedAction(error));
-    });
-  }
-
-  next(action);
+Middleware<AppState> createBookListTypeMiddleware(BookListTypeRepositoryImpl repository) {
+  final fetchMiddleware = fetchBookListTypeMiddleware(repository);
+  return TypedMiddleware<AppState, FetchBookListsAction>(fetchMiddleware);
 }
 
-//Middleware<AppState> fetchBookListMiddleware()
+Middleware<AppState> fetchBookListTypeMiddleware(
+    BookListTypeRepositoryImpl repository) {
+  return (Store<AppState> store, action, NextDispatcher next) {
+    try {
+      repository.loadBookLists().then((bookListTypeList) {
+        store.dispatch(FetchBookListsSuccedAction(bookListTypeList));
+      });
+    } catch(e) {
+      store.dispatch(FetchBookListsFailedAction(e));
+    }
+
+    next(action);
+  };
+
+}

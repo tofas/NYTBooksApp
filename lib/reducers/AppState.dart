@@ -1,8 +1,7 @@
-import 'package:marvelapp/entities/BookLists.dart';
-import 'package:marvelapp/home/BookListsApi.dart';
+import 'package:marvelapp/entities/BookListType.dart';
 
 class AppState {
-  List<BookList> bookList;
+  List<BookListType> bookList;
   bool isFetching;
 
   AppState({
