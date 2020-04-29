@@ -13,7 +13,9 @@ void fetchBookListMiddleware(
     }).catchError((Object error) {
       store.dispatch(new FetchBookListsFailedAction(error));
     });
-  }
+  } else if(action is )
 
   next(action);
 }
+
+Middleware<AppState> fetchBookListMiddleware()

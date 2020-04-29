@@ -1,4 +1,4 @@
-import 'package:marvelapp/home/BookListsApi.dart';
+import 'package:marvelapp/entities/BookLists.dart';
 
 class FetchBookListsAction {}
 
@@ -16,4 +16,8 @@ class FetchBookListsFailedAction {
   FetchBookListsFailedAction(Exception error) {
     this.error = error;
   }
+}
+
+class FetchBookListDetailAction {
+
 }

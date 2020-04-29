@@ -19,15 +19,3 @@ class BookListApi {
   }
 }
 
-class BookList {
-  String listName;
-  String listNameEncoded;
-
-  BookList({this.listName, this.listNameEncoded});
-
-  factory BookList.fromJson(Map<String, dynamic> json) {
-    return BookList(
-        listName: json['list_name'],
-        listNameEncoded: json['list_name_encoded']);
-  }
-}

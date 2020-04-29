@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:marvelapp/actions/Actions.dart';
+import 'package:marvelapp/bookdetail/BookDetailPage.dart';
 import 'package:marvelapp/home/BookListsViewModel.dart';
 
 import '../reducers/AppState.dart';
@@ -27,8 +28,17 @@ class BookListsView extends StatelessWidget {
                   itemCount: viewModel.bookLists.length,
                   itemBuilder: (context, position) {
                     return ListTile(
-                        title: getItem(viewModel.bookLists[position]));
+                      title: getItem(viewModel.bookLists[position]),
+                      onTap: () =>
+                          onItemClick(context, viewModel.bookLists[position]),
+                    );
                   });
             }
           });
+
+  void onItemClick(BuildContext context, BookList list) {
+    Navigator.pushNamed(context, BookDetailPage.routeName,
+        arguments:
+            BookDetailNavigationArguments(list.listName, list.listNameEncoded));
+  }
 }

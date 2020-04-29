@@ -7,3 +7,6 @@ class App {
 class HomePage {
   static const String home_page_title = "Marvel App";
 }
+
+class BookDetail {
+}

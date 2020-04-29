@@ -3,6 +3,8 @@ import 'dart:wasm';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:marvelapp/actions/Actions.dart';
+import 'package:marvelapp/bookdetail/BookDetailPage.dart';
+import 'package:marvelapp/home/BookListsView.dart';
 import 'package:marvelapp/middleware/Middleware.dart';
 import 'package:marvelapp/reducers/Reducer.dart';
 import 'package:redux/redux.dart';
@@ -35,6 +37,11 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: new MyHomePage()));
+            initialRoute: 'home',
+            routes: {
+              MyHomePage.routeName: (context) => MyHomePage(),
+              BookDetailPage.routeName: (context) => BookDetailPage()
+            },
+        ));
   }
 }

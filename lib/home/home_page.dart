@@ -3,6 +3,8 @@ import 'package:marvelapp/home/BookListsView.dart';
 import 'package:marvelapp/resources/strings.dart';
 
 class MyHomePage extends StatelessWidget {
+  static const routeName = 'home';
+
   MyHomePage({Key key}) : super(key: key);
 
   final String title = HomePage.home_page_title;
