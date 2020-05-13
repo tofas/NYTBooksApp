@@ -7,23 +7,25 @@ import 'package:marvelapp/bookdetail/BookDetailPage.dart';
 import 'package:marvelapp/data/booklists/BookListTypeLocalDataSource.dart';
 import 'package:marvelapp/data/booklists/BookListTypeRemoteDataSource.dart';
 import 'package:marvelapp/data/booklists/BookListTypeRepositoryImpl.dart';
+import 'package:marvelapp/data/booklistsdetail/BookListDetailRemoteDataSource.dart';
+import 'package:marvelapp/data/booklistsdetail/BookListDetailRepository.dart';
 import 'package:marvelapp/home/BookListTypeView.dart';
 import 'package:marvelapp/middleware/Middleware.dart';
 import 'package:marvelapp/reducers/Reducer.dart';
 import 'package:redux/redux.dart';
 
 import 'reducers/AppState.dart';
-import 'home/home_page.dart';
+import 'home/MyHomePage.dart';
 import 'resources/strings.dart';
 
 void main() {
   final store = new Store(
     appStateReducer,
     initialState: new AppState(),
-    middleware: [
-      createBookListTypeMiddleware(BookListTypeRepositoryImpl(
-          BookListTypeLocalDataSource(), BookListTypeRemoteDataSource()))
-    ],
+    middleware: createBookListTypeMiddleware(
+        BookListTypeRepositoryImpl(
+            BookListTypeLocalDataSource(), BookListTypeRemoteDataSource()),
+        BookListDetailRepository(BookListDetailRemoteDataSource())),
   );
 
   runApp(MyApp(store: store));
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          initialRoute: 'home',
+          initialRoute: MyHomePage.routeName,
           routes: {
             MyHomePage.routeName: (context) => MyHomePage(),
             BookDetailPage.routeName: (context) => BookDetailPage()

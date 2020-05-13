@@ -4,6 +4,7 @@ import 'package:marvelapp/actions/Actions.dart';
 import 'package:marvelapp/bookdetail/BookDetailPage.dart';
 import 'package:marvelapp/entities/BookListType.dart';
 import 'package:marvelapp/home/BookListTypeViewModel.dart';
+import 'package:redux/redux.dart';
 
 import '../reducers/AppState.dart';
 
@@ -37,8 +38,10 @@ class BookListTypeView extends StatelessWidget {
           });
 
   void onItemClick(BuildContext context, BookListType list) {
+    Store store = StoreProvider.of<AppState>(context);
+    store.dispatch(OnBookListSelectedAction(list.listNameEncoded));
     Navigator.pushNamed(context, BookDetailPage.routeName,
         arguments:
-            BookDetailNavigationArguments(list.listName, list.listNameEncoded));
+            BookDetailNavigationArguments(list.listName));
   }
 }

@@ -3,13 +3,9 @@ import 'dart:convert';
 import 'package:marvelapp/entities/BookListType.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../core/Loadable.dart';
-import '../core/Storable.dart';
 import 'dart:io';
 
-class BookListTypeLocalDataSource
-    implements Loadable<List<BookListType>>, Storable<List<BookListType>> {
-  @override
+class BookListTypeLocalDataSource {
   Future<List<BookListType>> load() async {
     final file = await localFile;
     final string = await file.readAsString();
@@ -19,7 +15,6 @@ class BookListTypeLocalDataSource
     return bookListTypes;
   }
 
-  @override
   Future store(List<BookListType> params) async {
     final file = await localFile;
 
