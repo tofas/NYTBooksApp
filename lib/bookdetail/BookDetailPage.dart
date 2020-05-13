@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:marvelapp/bookdetail/BookDetailGridview.dart';
-import 'package:marvelapp/entities/BookListType.dart';
+import 'package:marvelapp/reducers/AppState.dart';
 
 class BookDetailPage extends StatelessWidget {
   static const routeName = 'detail';
@@ -8,21 +9,20 @@ class BookDetailPage extends StatelessWidget {
   BookDetailPage({Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final BookDetailNavigationArguments args =
-        ModalRoute
-            .of(context)
-            .settings
-            .arguments;
-
-    return Scaffold(
-        appBar: AppBar(title: Text(args.listName)),
-        body: new BookDetailGridView());
-  }
+  Widget build(BuildContext context) =>
+      StoreConnector<AppState, BookDetailPageViewModel>(
+          converter: (store) =>
+              BookDetailPageViewModel(store.state.selectedList.listName),
+          builder: (context, viewModel) {
+            return new Scaffold(
+                appBar: AppBar(title: Text(viewModel.title)),
+                body: new BookDetailGridView());
+          }
+      );
 }
 
-class BookDetailNavigationArguments {
-  final String listName;
+class BookDetailPageViewModel {
+  final String title;
 
-  BookDetailNavigationArguments(this.listName);
+  BookDetailPageViewModel(this.title);
 }

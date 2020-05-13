@@ -16,13 +16,13 @@ class FetchBookListsFailedAction {
 }
 
 class OnBookListSelectedAction {
-  String selectedListName;
+  BookListType selectedList;
 
-  OnBookListSelectedAction(this.selectedListName);
+  OnBookListSelectedAction(this.selectedList);
 }
 
 class FetchBookListDetailAction {
-  String selectedList;
+  BookListType selectedList;
 
   FetchBookListDetailAction(this.selectedList);
 }

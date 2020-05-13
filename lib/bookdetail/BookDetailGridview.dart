@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:marvelapp/actions/Actions.dart';
-import 'package:marvelapp/entities/BookListDetail.dart';
-import 'package:marvelapp/entities/BookListType.dart';
 import 'package:marvelapp/reducers/AppState.dart';
 
 import 'BookDetailGridviewViewModel.dart';

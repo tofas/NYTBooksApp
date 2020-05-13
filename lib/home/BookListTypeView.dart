@@ -39,9 +39,7 @@ class BookListTypeView extends StatelessWidget {
 
   void onItemClick(BuildContext context, BookListType list) {
     Store store = StoreProvider.of<AppState>(context);
-    store.dispatch(OnBookListSelectedAction(list.listNameEncoded));
-    Navigator.pushNamed(context, BookDetailPage.routeName,
-        arguments:
-            BookDetailNavigationArguments(list.listName));
+    store.dispatch(OnBookListSelectedAction(list));
+    Navigator.pushNamed(context, BookDetailPage.routeName);
   }
 }

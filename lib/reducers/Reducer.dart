@@ -12,7 +12,7 @@ AppState appStateReducer(AppState state, action) {
 
   if (action is OnBookListSelectedAction) {
     return new AppState(
-        bookList: state.bookList, selectedList: action.selectedListName);
+        bookList: state.bookList, selectedList: action.selectedList);
   }
 
   if (action is FetchBookListDetailAction) {

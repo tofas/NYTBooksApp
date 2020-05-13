@@ -38,7 +38,7 @@ Middleware<AppState> fetchBookListDetailMiddleware(
   return (Store<AppState> store, action, NextDispatcher next) {
     try {
       repository
-          .loadBookListsDetail(store.state.selectedList)
+          .loadBookListsDetail(store.state.selectedList.listNameEncoded)
           .then((bookListDetailList) {
         store.dispatch(FetchBookListDetailSucceedAction(bookListDetailList));
       });
