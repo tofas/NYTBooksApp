@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:marvelapp/actions/Actions.dart';
-import 'package:marvelapp/bookdetail/BookDetailPage.dart';
 import 'package:marvelapp/entities/BookListType.dart';
-import 'package:marvelapp/home/BookListTypeViewModel.dart';
+import 'package:marvelapp/reducers/AppState.dart';
+import 'package:marvelapp/resources/strings.dart';
+import 'package:marvelapp/screens/bookdetail/BookDetailPage.dart';
 import 'package:redux/redux.dart';
 
-import '../reducers/AppState.dart';
+class MyHomePage extends StatelessWidget {
+  static const routeName = 'home';
+
+  MyHomePage({Key key}) : super(key: key);
+
+  final String title = HomePage.home_page_title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text(title)), body: new BookListTypeView());
+  }
+}
+
+class BookListsTypeViewModel {
+  bool isFetching;
+  List<BookListType> bookLists;
+
+  BookListsTypeViewModel(this.bookLists, this.isFetching);
+}
 
 class BookListTypeView extends StatelessWidget {
   Widget getItem(BookListType bookList) {
@@ -43,3 +63,5 @@ class BookListTypeView extends StatelessWidget {
     Navigator.pushNamed(context, BookDetailPage.routeName);
   }
 }
+
+

@@ -1,21 +1,18 @@
-import 'dart:wasm';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:marvelapp/actions/Actions.dart';
-import 'package:marvelapp/bookdetail/BookDetailPage.dart';
 import 'package:marvelapp/data/booklists/BookListTypeLocalDataSource.dart';
 import 'package:marvelapp/data/booklists/BookListTypeRemoteDataSource.dart';
 import 'package:marvelapp/data/booklists/BookListTypeRepositoryImpl.dart';
 import 'package:marvelapp/data/booklistsdetail/BookListDetailRemoteDataSource.dart';
 import 'package:marvelapp/data/booklistsdetail/BookListDetailRepository.dart';
-import 'package:marvelapp/home/BookListTypeView.dart';
 import 'package:marvelapp/middleware/Middleware.dart';
 import 'package:marvelapp/reducers/Reducer.dart';
+import 'package:marvelapp/screens/bookdetail/BookDetailPage.dart';
+import 'package:marvelapp/screens/home/MyHomePage.dart';
 import 'package:redux/redux.dart';
 
 import 'reducers/AppState.dart';
-import 'home/MyHomePage.dart';
 import 'resources/strings.dart';
 
 void main() {
