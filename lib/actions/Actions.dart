@@ -38,3 +38,9 @@ class FetchBookListDetailFailedAction {
 
   FetchBookListDetailFailedAction(this.error);
 }
+
+class OnBookSelectedAction {
+  int selectedBook;
+
+  OnBookSelectedAction(this.selectedBook);
+}

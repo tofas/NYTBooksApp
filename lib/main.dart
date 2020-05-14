@@ -9,6 +9,7 @@ import 'package:marvelapp/data/booklistsdetail/BookListDetailRepository.dart';
 import 'package:marvelapp/middleware/Middleware.dart';
 import 'package:marvelapp/reducers/Reducer.dart';
 import 'package:marvelapp/screens/bookdetail/BookDetailPage.dart';
+import 'package:marvelapp/screens/bookview/BookViewDetail.dart';
 import 'package:marvelapp/screens/home/MyHomePage.dart';
 import 'package:redux/redux.dart';
 
@@ -45,7 +46,8 @@ class MyApp extends StatelessWidget {
           initialRoute: MyHomePage.routeName,
           routes: {
             MyHomePage.routeName: (context) => MyHomePage(),
-            BookDetailPage.routeName: (context) => BookDetailPage()
+            BookDetailPage.routeName: (context) => BookDetailPage(),
+            BookViewDetail.routeName: (context) => BookViewDetail()
           },
         ));
   }

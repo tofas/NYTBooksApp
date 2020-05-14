@@ -6,11 +6,13 @@ class AppState {
   bool isFetching;
   BookListType selectedList;
   List<BookThumbnail> selectedListThumbnails;
+  int selectedBook;
 
   AppState({
     this.bookList = const [],
     this.isFetching = false,
     this.selectedList,
-    this.selectedListThumbnails = const []
+    this.selectedListThumbnails = const [],
+    this.selectedBook
   });
 }

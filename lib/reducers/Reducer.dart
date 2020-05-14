@@ -30,5 +30,12 @@ AppState appStateReducer(AppState state, action) {
         selectedListThumbnails: action.bookThumbnails);
   }
 
+  if (action is OnBookSelectedAction) {
+    return new AppState(bookList: state.bookList,
+        selectedList: state.selectedList,
+        selectedListThumbnails: state.selectedListThumbnails,
+        selectedBook: action.selectedBook);
+  }
+
   return new AppState();
 }
