@@ -6,7 +6,7 @@ class AppState {
   bool isFetching;
   BookListType selectedList;
   List<BookThumbnail> selectedListThumbnails;
-  int selectedBook;
+  BookThumbnail selectedBook;
 
   AppState({
     this.bookList = const [],

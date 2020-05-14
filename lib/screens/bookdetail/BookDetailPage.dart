@@ -79,8 +79,6 @@ class BookDetailGridView extends StatelessWidget {
   }
 }
 
-
-
 class BookDetailGridViewViewModel {
   bool isFetching;
   List<BookThumbnail> bookThumbnails;

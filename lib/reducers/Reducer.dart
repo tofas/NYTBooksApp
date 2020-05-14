@@ -34,7 +34,7 @@ AppState appStateReducer(AppState state, action) {
     return new AppState(bookList: state.bookList,
         selectedList: state.selectedList,
         selectedListThumbnails: state.selectedListThumbnails,
-        selectedBook: action.selectedBook);
+        selectedBook: state.selectedListThumbnails[action.selectedBook]);
   }
 
   return new AppState();
