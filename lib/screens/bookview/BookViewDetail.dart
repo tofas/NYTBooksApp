@@ -27,10 +27,20 @@ class BookViewDetail extends StatelessWidget {
                     width: double.infinity,
                     height: MediaQuery.of(context).size.height * 0.4,
                   ),
-                  Text(viewModel.title,
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-                  Text(viewModel.description, style: TextStyle(fontSize: 16))
+                  Container(
+                      margin: EdgeInsets.all(16),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(viewModel.title,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontSize: 25, fontWeight: FontWeight.bold))
+                          ])),
+                  Container(
+                      margin: EdgeInsets.all(16),
+                      child: Text(viewModel.description,
+                          style: TextStyle(fontSize: 16)))
                 ],
               ),
             );

@@ -5,6 +5,7 @@ import 'package:marvelapp/entities/BookListType.dart';
 import 'package:marvelapp/reducers/AppState.dart';
 import 'package:marvelapp/resources/strings.dart';
 import 'package:marvelapp/screens/bookdetail/BookDetailPage.dart';
+import 'package:native_widgets/native_widgets.dart';
 import 'package:redux/redux.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -29,27 +30,25 @@ class BookListsTypeViewModel {
 }
 
 class BookListTypeView extends StatelessWidget {
-  Widget getItem(BookListType bookList) {
-    return Row(
-      children: <Widget>[Text(bookList.listName)],
-    );
-  }
-
   @override
   Widget build(BuildContext context) =>
       StoreConnector<AppState, BookListsTypeViewModel>(
           onInit: (store) => store.dispatch(FetchBookListsAction()),
-          converter: (store) =>
-              BookListsTypeViewModel(store.state.bookList, store.state.isFetching),
+          converter: (store) => BookListsTypeViewModel(
+              store.state.bookList, store.state.isFetching),
           builder: (context, viewModel) {
             if (viewModel.isFetching) {
-              return Center(child: CircularProgressIndicator());
+              return Center(child: PlatformCircularProgressIndicator());
             } else {
               return new ListView.builder(
                   itemCount: viewModel.bookLists.length,
                   itemBuilder: (context, position) {
-                    return ListTile(
-                      title: getItem(viewModel.bookLists[position]),
+                    return NativeListTile(
+                      title: Text(viewModel.bookLists[position].listName),
+                      ios: CupertinoListTileData(
+                        style: CupertinoCellStyle.subtitle,
+                        accessory: CupertinoAccessory.disclosureIndicator
+                      ),
                       onTap: () =>
                           onItemClick(context, viewModel.bookLists[position]),
                     );
@@ -63,5 +62,3 @@ class BookListTypeView extends StatelessWidget {
     Navigator.pushNamed(context, BookDetailPage.routeName);
   }
 }
-
-
