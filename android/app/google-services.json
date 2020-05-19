@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "433456593192",
+    "firebase_url": "https://api-project-433456593192.firebaseio.com",
+    "project_id": "api-project-433456593192",
+    "storage_bucket": "api-project-433456593192.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433456593192:android:838ca685508e846581f81d",
+        "android_client_info": {
+          "package_name": "com.flutter.nytimesbooksapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433456593192-nscjo5egnbo1oufjn6c3g4577ck5bo5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA29A3BVyRZi9xxVnVHmGORnV0oA5w1-2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433456593192-nscjo5egnbo1oufjn6c3g4577ck5bo5p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "433456593192-fdganiopdo5v9la3bv3cl6rc06qj0f4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutter.nytimesbooksapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

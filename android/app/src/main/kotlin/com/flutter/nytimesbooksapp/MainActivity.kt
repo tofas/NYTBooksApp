@@ -1,4 +1,4 @@
-package com.marvelapp
+package com.flutter.nytimesbooksapp
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
